@@ -34,8 +34,8 @@ def main():
 
     ops = [
         ('a', 'apply --recursive -f', None, None),
-        ('ak', 'apply -k', None, ['sys']),
-        ('k', 'kustomize', None, ['sys']),
+#        ('ak', 'apply -k', None, ['sys']),
+#        ('k', 'kustomize', None, ['sys']),
         ('ex', 'exec -i -t', None, None),
         ('lo', 'logs -f', None, None),
         ('lop', 'logs -f -p', None, None),
@@ -56,6 +56,15 @@ def main():
         ('sec', 'secret', ['g', 'd', 'rm'], None),
         ('no', 'nodes', ['g', 'd'], ['sys']),
         ('ns', 'namespaces', ['g', 'd', 'rm'], ['sys']),
+        ('ss', 'statefulset', ['g', 'd', 'rm'], ['sys']),
+        ('cbc', 'couchbasecluster', ['g', 'd', 'rm'], ['sys']),
+        ('pv', 'persistentvolumes', ['g', 'd', 'rm'], ['sys']),
+        ('pvc', 'persistentvolumeclaims', ['g', 'd', 'rm'], ['sys']),
+        ('cr', 'clusterroles', ['g', 'd', 'rm'], ['sys']),
+        ('crb', 'clusterrolebindings', ['g', 'd', 'rm'], ['sys']),
+        ('r', 'roles', ['g', 'd', 'rm'], ['sys']),
+        ('rb', 'rolebindings', ['g', 'd', 'rm'], ['sys']),
+        ('sc', 'storageclass', ['g', 'd', 'rm'], ['sys']),
         ]
     res_types = [r[0] for r in res]
 
@@ -101,6 +110,8 @@ def main():
     for cmd in out:
         print("alias {}='{}'".format(''.join([a[0] for a in cmd]),
               ' '.join([a[1] for a in cmd])))
+    print("alias k-='kubectx -'")
+    print("alias k--='kubens -'")
 
 
 def gen(parts):

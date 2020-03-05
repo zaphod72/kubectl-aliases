@@ -3,7 +3,9 @@
 To switch to the previously used context or namespace:
 
 `k-='kubectx -'`
+
 `k--='kubens -'`
+
 
 # kubectl-aliases
 

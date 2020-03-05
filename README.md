@@ -1,3 +1,10 @@
+# kubens and kubectx aliases
+
+To switch to the previously used context or namespace:
+
+`k-='kubectx -'`
+`k--='kubens -'`
+
 # kubectl-aliases
 
 This repository contains [a script](generate_aliases.py) to generate hundreds of
@@ -62,14 +69,34 @@ function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
   * **`d`**=`describe`
   * **`rm`**=`delete`
   * **`a`**:`apply -f`
-  * **`ak`**:`apply -k`
-  * **`k`**:`kustomize`
   * **`ex`**: `exec -i -t`
   * **`lo`**: `logs -f`
 * resources:
+        ('po', 'pods', ['g', 'd', 'rm'], None),
+        ('dep', 'deployment', ['g', 'd', 'rm'], None),
+        ('svc', 'service', ['g', 'd', 'rm'], None),
+        ('ing', 'ingress', ['g', 'd', 'rm'], None),
+        ('cm', 'configmap', ['g', 'd', 'rm'], None),
+        ('sec', 'secret', ['g', 'd', 'rm'], None),
+        ('no', 'nodes', ['g', 'd'], ['sys']),
+        ('ns', 'namespaces', ['g', 'd', 'rm'], ['sys']),
+        ('ss', 'statefulset', ['g', 'd', 'rm'], ['sys']),
+        ('cbc', 'couchbasecluster', ['g', 'd', 'rm'], ['sys']),
+        ('pv', 'persistentvolumes', ['g', 'd', 'rm'], ['sys']),
+        ('pvc', 'persistentvolumeclaims', ['g', 'd', 'rm'], ['sys']),
+        ('cr', 'clusterroles', ['g', 'd', 'rm'], ['sys']),
+        ('crb', 'clusterrolebindings', ['g', 'd', 'rm'], ['sys']),
+        ('r', 'roles', ['g', 'd', 'rm'], ['sys']),
+        ('rb', 'rolebindings', ['g', 'd', 'rm'], ['sys']),
+        ('sc', 'storageclass', ['g', 'd', 'rm'], ['sys']),
+
   * **`po`**=pod, **`dep`**=`deployment`, **`ing`**=`ingress`,
     **`svc`**=`service`, **`cm`**=`configmap`, **`sec`=`secret`**,
-    **`ns`**=`namespace`, **`no`**=`node`
+    **`ns`**=`namespace`, **`no`**=`node`, **`ss`**=`statefulset`**,
+    **`cbc`**=`couchbasecluster`, **`pv`**=`persistentvolumes`, **`pvc`**=`persistentvolumeclaims`**,
+    **`cr`**=`clusterroles`, **`crb`**=`clusterrolebindings`,
+    **`r`**=`roles`**, **`rb`**=`rolebindings`**,
+    **`sc`**=`storageclass`**
 * flags:
   * output format: **`oyaml`**, **`ojson`**, **`owide`**
   * **`all`**: `--all` or `--all-namespaces` depending on the command

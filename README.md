@@ -48,7 +48,7 @@ See [the full list](.kubectl_aliases).
 
 ### Installation
 
-You can directly download the [`.kubectl_aliases` file](https://rawgit.com/ahmetb/kubectl-alias/master/.kubectl_aliases)
+You can directly download the [`.kubectl_aliases` file](https://raw.githubusercontent.com/zaphod72/kubectl-aliases/master/.kubectl_aliases)
 and save it in your $HOME directory, then edit your .bashrc/.zshrc file with:
 
 ```sh
